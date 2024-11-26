@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: postgres-deployment
+  labels:
+    app: postgres
+spec:
+  # Numero de replicas de los pods
+  replicas: 1
+  # Definir como la implementacion identifica los pods que puede administrar
+  selector: 
+    matchLabels:
+      app: postgres
+  # Plantilla de la indentificacion del pod
+  template:
+    metadata: 
+      labels: postgres

@@ -1,0 +1,21 @@
+# EL volumen de persistencia (PV) es una pieza de alamcenamiento
+# que tiene un ciclo de vida independiente de los pods
+# y preserva todos los datos
+
+apiVersion: v1  # version del api server
+kind: PersistentVolume  # TIpo de archivo
+metadata:
+  name: postgres-volume
+  labels:
+    type: local  # Puede cambiar en rutas de EBS o Azure o local
+    app: postgres
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath: 
+    path: "/mnt/data/"  # Punto de montaje dentro del nodo
+    
+
