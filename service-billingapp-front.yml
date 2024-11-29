@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: billing-app-front-service
+  labels:
+    app: billing-app-front
+spec:
+  ports:
+    - name: billing-app-front
+      port: 80
+      nodePort: 30100
+  type: NodePort
+  selector:
+    app: billing-app-front
